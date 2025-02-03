@@ -1,3 +1,3 @@
 extends Node
 
-@export var speed: int = 400
+@export var speed: int = 100

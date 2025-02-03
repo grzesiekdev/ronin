@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2hqke7138ieb"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_f0uup"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_f0uup")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 29
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

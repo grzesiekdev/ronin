@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsljnxfo827pi"]
+
+[ext_resource type="PackedScene" uid="uid://cysic0yt285wc" path="res://scenes/levels/level_parent.tscn" id="1_hxshy"]
+[ext_resource type="Script" path="res://scenes/levels/level_forest.gd" id="2_tlth6"]
+[ext_resource type="TileSet" uid="uid://dnkgrv8jhu6an" path="res://scenes/levels/TileSets/level_1.tres" id="3_uvqi2"]
+[ext_resource type="TileSet" uid="uid://dbpsftnpldbq8" path="res://scenes/levels/TileSets/level_1_2.tres" id="4_dk5ej"]
+[ext_resource type="TileSet" uid="uid://c2rlhhcy4pb8p" path="res://scenes/levels/TileSets/level_1_3.tres" id="5_xrje3"]
+
+[node name="LevelForest" instance=ExtResource("1_hxshy")]
+script = ExtResource("2_tlth6")
+
+[node name="Grass" parent="Ground" index="0"]
+tile_set = ExtResource("3_uvqi2")
+
+[node name="Environment" parent="Ground" index="1"]
+tile_set = ExtResource("4_dk5ej")
+
+[node name="TileMapLayer" parent="Decorations" index="0"]
+tile_set = ExtResource("5_xrje3")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights" index="0"]
+color = Color(0.099986, 0.099986, 0.099986, 1)
+blend_mode = 1
