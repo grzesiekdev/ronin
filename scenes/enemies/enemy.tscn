@@ -2,17 +2,29 @@
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_f0uup"]
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemies", "Entities"]]
 script = ExtResource("1_f0uup")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 2
-collision_mask = 29
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 
 [node name="Timers" type="Node" parent="."]
 
+[node name="AttackTimer" type="Timer" parent="Timers"]
+
+[node name="SpecialTimer" type="Timer" parent="Timers"]
+
+[node name="InvulnerabilityTimer" type="Timer" parent="Timers"]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="NoticeArea" type="Area2D" parent="Areas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/NoticeArea"]
+
+[node name="AttackArea" type="Area2D" parent="Areas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AttackArea"]
+
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

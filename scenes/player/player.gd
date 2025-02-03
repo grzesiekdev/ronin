@@ -7,6 +7,7 @@ var player_speed_multiplier: float
 var max_player_speed_multiplier: float = 2
 
 func _ready() -> void:
+	GameEvents.player_damage_received.connect(hit)
 	$AnimationPlayer.play("idle")
 	$AnimationPlayer.animation_finished.connect(_on_animation_finished)
 	player_speed_multiplier = max_player_speed_multiplier
@@ -15,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	handle_movement()
 	handle_animations()
 	move_and_slide()
+	PlayerStats.global_position = global_position
 
 func handle_movement() -> void:
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -46,3 +48,19 @@ func handle_animations() -> void:
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "attack_1":
 		state = PlayerState.IDLE
+
+func hit(amount: int) -> void:
+	PlayerStats.health -= amount
+	if PlayerStats.health > 0:
+		$AnimationPlayer.play("hit")
+	else:
+		pass
+		# TODO: later on add death animation
+
+
+func attack() -> void:
+	var in_area = $AttackRange.get_overlapping_bodies()
+	for body in in_area:
+		if body.is_in_group("Enemies") || body.is_in_group("Destructable objects"):
+			if 'hit' in body:
+				body.hit(PlayerStats.damage)

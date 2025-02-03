@@ -26,5 +26,8 @@ blend_mode = 2
 [node name="Enemy" parent="Enemies" index="0" instance=ExtResource("3_3dd7n")]
 position = Vector2(177, -19)
 
+[node name="Rat" parent="Enemies" index="1" instance=ExtResource("3_3dd7n")]
+position = Vector2(-36, -42)
+
 [node name="UI" parent="." index="6"]
 visible = false

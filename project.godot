@@ -18,12 +18,19 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 PlayerStats="*res://globals/player_stats.tscn"
 UI="*res://scenes/global/UI/ui.tscn"
+GameEvents="*res://globals/game_events.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 mouse_cursor/custom_image="res://resources/UI/StoneCursorWenrexa/PNG/03.png"
+
+[global_group]
+
+Entities="Everything that walks and attack"
+Enemies="All enemies"
+"Destructable objects"="Everything that is static but can be destroyed"
 
 [input]
 
